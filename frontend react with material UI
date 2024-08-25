@@ -1,0 +1,27 @@
+{
+  "name": "bfhl-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-tests run-all",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "@material-ui/core": "^5.0.0",
+    "@material-ui/icons": "^5.0.0",
+    "@material-ui/lab": "^5.0.0-alpha.0",
+    "@material-ui/pickers": "^5.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "web-api-tester": "^0.12.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest": "^13.1.0",
+    "@testing-library/react": "^13.1.0",
+    "jest": "^28.0.1",
+    "react-hot-loader": "^4.13.1"
+  }
+}
