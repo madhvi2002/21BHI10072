@@ -1,0 +1,46 @@
+from flask import Flask, request, jsonify
+import json
+
+app = Flask(__name__)
+
+# Replace with your actual values
+user_id = "john_doe_17091999"
+email = "john@xyz.com"
+roll_number = "21BHI10072"
+
+def find_highest_lowercase(alphabets):
+  """
+  Finds the highest lowercase alphabet in the list.
+  """
+  lowercase = [c for c in alphabets if c.islower()]
+  return [max(lowercase)] if lowercase else []
+
+@app.route("/bfhl", methods=["GET", "POST"])
+def handle_request():
+  if request.method == "GET":
+    return jsonify({"operation_code": 1}), 200
+
+  try:
+    data = request.get_json()
+    input_data = data["data"]
+  except (KeyError, json.JSONDecodeError):
+    return jsonify({"is_success": False, "error": "Invalid JSON input"}), 400
+
+  numbers = [str(i) for i in input_data if isinstance(i, int)]
+  alphabets = [str(c) for c in input_data if isinstance(c, str)]
+  highest_lowercase = find_highest_lowercase(alphabets)
+
+  response = {
+      "is_success": True,
+      "user_id": user_id,
+      "email": email,
+      "roll_number": roll_number,
+      "numbers": numbers,
+      "alphabets": alphabets,
+      "highest_lowercase_alphabet":   
+ highest_lowercase,
+  }
+  return jsonify(response)
+
+if __name__ == "__main__":
+  app.run(debug=True)
